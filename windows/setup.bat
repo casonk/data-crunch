@@ -29,7 +29,7 @@ if not exist %SEVENZIP_TEMP_DIR% (
 )
 
 REM Download ffmpeg zip & 7zip exe with user credentials
-powershell -Command "$cred = Get-Credential; Invoke-WebRequest -Uri '%FFMPEG_URL%' -OutFile '%FFMPEG_ZIP%' -UseBasicParsing -Proxy 'http://rb-proxy-na.bosch.com:8080' -ProxyCredential $cred; Invoke-WebRequest -Uri '%SEVENZIP_URL%' -OutFile '%SEVENZIP_EXE%' -UseBasicParsing  -Proxy 'http://rb-proxy-na.bosch.com:8080' -ProxyCredential $cred"
+powershell -Command "$cred = Get-Credential; Invoke-WebRequest -Uri '%FFMPEG_URL%' -OutFile '%FFMPEG_ZIP%' -UseBasicParsing -Proxy 'https://your-proxy.com:8080' -ProxyCredential $cred; Invoke-WebRequest -Uri '%SEVENZIP_URL%' -OutFile '%SEVENZIP_EXE%' -UseBasicParsing  -Proxy 'http://rb-proxy-na.bosch.com:8080' -ProxyCredential $cred"
 
 REM Extract ffmpeg zip
 powershell -Command "Expand-Archive -Path '%FFMPEG_ZIP%' -DestinationPath '%FFMPEG_TEMP_DIR%' -Force"
